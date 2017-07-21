@@ -5,46 +5,76 @@
 	<title></title>
 </head>
 <body>
-
+<div id="dd">点击</div>
 </body>
-
+<script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript">
 
 
-
-	var request;
-
-		if(window.XMLHttpRequest){
-			request = new XMLHttpRequest(); //IE 7 以上支持 
-			alert("XMLHttpRequest");		
-			request.open("GET","jj.json",false);
-			request.send();
-			request.onreadystatechange = function () {
-				//先判断服务器是否处理完成。其实这一步也可以省略
-				if(request.readyState === 4){
-					//再判断客户端的相应码.
-					if(request.status === 200){
-						alert(request.responseText);
-					}else{
-						alert('adfa')
-					}
-
-				}
+var dd = document.getElementById("dd");
 
 
-			}
+// (function df(){
+
+// 	var request;
 
 
+// 		// 这是原生的
+
+// 		if(window.XMLHttpRequest){
+// 			request = new XMLHttpRequest(); //IE 7 以上支持 
+				
+// 										//默认就是true，也就是异步请求
+// 			request.open("GET","jj.json",true);
+// 			request.send();
+// 			request.onreadystatechange = function () {
+// 				//先判断服务器是否处理完成。其实这一步也可以省略
+// 				if(request.readyState === 4){
+// 					//再判断客户端的相应码.
+// 					if(request.status === 200){
+						
+// 						dd.innerHTML = request.responseText;
+// 					}else{
+
+// 					}
+
+// 				}
 
 
-		}else{
-			request = new ActiveXObject("Microsoft.XMLHTTP");
+// 			}
+
+// 		}else{
+// 			request = new ActiveXObject("Microsoft.XMLHTTP");
+// 			alert("ActiveXObject");
+// 		}
+
+// })()
+
+	
+//文档准备好时，执行的方法
+$(document).ready(function(){
 
 
-			alert("ActiveXObject");
-		}
+		$.ajax({
+			type:"POST",
+			url:"http://172.16.10.124/jj.json",
+			dataType:"jsonp",
+			jsonp:"",
+			data:{//在post中会有data对象
+
+			},
+			success:function(data){
+				//data是整个文档对象
+				$("#dd").html(data.title);
+				
+			},
+			error:function(error){
+				alert(error.status)
+			},
+		})
 
 
+})
 
 	
 
