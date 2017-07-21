@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.loading{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 100;
+			top: 0;
+			left: 0;
+			background: #fff;
+		}
+		.loading .pic{
+			width: 100px;
+			height: 100px;
+			
+		
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			font-size: 30px;
+			line-height: 100px;
+			text-align: center;
+
+		}
+		.loading .pic span{
+			display: block;
+			width: 80px;
+			height: 80px;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+	
+			border-radius: 50%;
+			box-shadow: 0 3px 0 #666;
+			animation: rotate 1s infinite linear;
+		}
+
+
+		@-webkit-keyframes rotate{
+			0% {-webkit-transform:rotate(0deg);transform:rotate(0deg);}
+			100% {-webkit-transform:rotate(360deg);transform:rotate(360deg);}
+		}
+		@keyframes rotate{
+			0% {-webkit-transform:rotate(0deg);transform:rotate(0deg);}
+			100% {-webkit-transform:rotate(360deg);transform:rotate(360deg);}
+		}
+
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		// var img  = new Image();
+		// img.onload = new function () {
+		// 	// body...
+		// }
+
+
+		// img.src = "http://f.hiphotos.baidu.com/zhidao/pic/item/b999a9014c086e06e0aa15ef01087bf40ad1cb10.jpg";
+$(function(){
+	var img  = $("img");
+var num = 0;
+
+		img.each(function(i){
+			var oImg = new Image();
+
+			oImg.onload = function(){
+
+				num++;
+				$(".pic b").html(parseInt(num/$("img").size*100)+"%")
+
+
+				if (num == i) {
+					$(".loading").fadeOut();	
+
+				}
+
+			}
+
+
+			oImg.src = img[i].src;
+		})
+})
+
+
+
+
+	</script>
+</head>
+<body>
+<div class="loading">
+	<div class="pic">
+		<span></span>
+		<b>0%</b>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+<img src="http://f.hiphotos.baidu.com/zhidao/pic/item/b999a9014c086e06e0aa15ef01087bf40ad1cb10.jpg">
+<img src="http://a.hiphotos.baidu.com/zhidao/pic/item/3c6d55fbb2fb4316352d920a22a4462309f7d394.jpg">
+<img src="http://e.hiphotos.baidu.com/zhidao/pic/item/54fbb2fb43166d2243b1069a402309f79152d2fd.jpg">
+<img src="http://h.hiphotos.baidu.com/zhidao/pic/item/d439b6003af33a872e9fa4dac35c10385243b504.jpg">
+<img src="http://img.daimg.com/uploads/allimg/140320/3-140320204241.jpg">
+<img src="http://b.hiphotos.baidu.com/zhidao/wh%3D600%2C800/sign=ae070c5e271f95caa6a09ab0f9275306/77094b36acaf2edd9ac140c98f1001e9390193d9.jpg">
+</body>
+</html>

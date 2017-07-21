@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+
+
+	var request;
+
+		if(window.XMLHttpRequest){
+			request = new XMLHttpRequest(); //IE 7 以上支持 
+			alert("XMLHttpRequest");		
+			request.open("GET","jj.json",false);
+			request.send();
+			request.onreadystatechange = function () {
+				//先判断服务器是否处理完成。其实这一步也可以省略
+				if(request.readyState === 4){
+					//再判断客户端的相应码.
+					if(request.status === 200){
+						alert(request.responseText);
+					}else{
+						alert('adfa')
+					}
+
+				}
+
+
+			}
+
+
+
+
+		}else{
+			request = new ActiveXObject("Microsoft.XMLHTTP");
+
+
+			alert("ActiveXObject");
+		}
+
+
+
+	
+
+
+</script>
+
+</html>

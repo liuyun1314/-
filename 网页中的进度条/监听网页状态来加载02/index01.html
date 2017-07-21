@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.loading{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 100;
+			top: 0;
+			left: 0;
+			background: #fff;
+		}
+		.loading .pic{
+			width: 64px;
+			height: 64px;
+			
+			background: url("831.gif") no-repeat;
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+
+	</style>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript">
+		document.onreadystatechange = function () {
+			// body...
+
+			if(document.readyState=="complete"){
+
+				$(".loading").fadeOut();
+			}
+
+			//这是用的最多的
+
+
+		}
+	</script>	
+</head>
+<body>
+
+<div class="loading"><div class="pic"></div></div>
+	<img src="http://f.hiphotos.baidu.com/zhidao/pic/item/b999a9014c086e06e0aa15ef01087bf40ad1cb10.jpg">
+<img src="http://a.hiphotos.baidu.com/zhidao/pic/item/3c6d55fbb2fb4316352d920a22a4462309f7d394.jpg">
+<img src="http://e.hiphotos.baidu.com/zhidao/pic/item/54fbb2fb43166d2243b1069a402309f79152d2fd.jpg">
+<img src="http://h.hiphotos.baidu.com/zhidao/pic/item/d439b6003af33a872e9fa4dac35c10385243b504.jpg">
+<img src="http://pic.qiantucdn.com/58pic/18/32/09/79u58PIC4Hd_1024.jpg">
+<img src="http://h.hiphotos.baidu.com/zhidao/pic/item/4034970a304e251fd298bf9ca586c9177f3e5362.jpg">
+<img src="http://img6.faloo.com/Picture/0x0/0/134/134822.jpg">
+</body>
+</html>
